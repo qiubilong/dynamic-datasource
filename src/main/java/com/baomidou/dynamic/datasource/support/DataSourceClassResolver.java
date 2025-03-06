@@ -228,7 +228,7 @@ public class DataSourceClassResolver {
      * @return 数据源映射持有者
      */
     private String findDataSourceAttribute(AnnotatedElement ae) {
-        AnnotationAttributes attributes = AnnotatedElementUtils.getMergedAnnotationAttributes(ae, DS.class);
+        AnnotationAttributes attributes = AnnotatedElementUtils.getMergedAnnotationAttributes(ae, DS.class); /* 包含DS子类 */
         if (attributes != null) {
             return attributes.getString("value");
         }
