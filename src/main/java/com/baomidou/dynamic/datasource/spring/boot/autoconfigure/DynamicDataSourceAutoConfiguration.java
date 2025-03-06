@@ -101,7 +101,7 @@ public class DynamicDataSourceAutoConfiguration implements InitializingBean {
     @Bean
     @ConditionalOnProperty(prefix = DynamicDataSourceProperties.PREFIX + ".aop", name = "enabled", havingValue = "true", matchIfMissing = true)
     public Advisor dynamicDatasourceAnnotationAdvisor(DsProcessor dsProcessor) {
-        DynamicDatasourceAopProperties aopProperties = properties.getAop();
+        DynamicDatasourceAopProperties aopProperties = properties.getAop();                                         /* @DS拦截器  */
         DynamicDataSourceAnnotationInterceptor interceptor = new DynamicDataSourceAnnotationInterceptor(aopProperties.getAllowedPublicOnly(), dsProcessor);
         DynamicDataSourceAnnotationAdvisor advisor = new DynamicDataSourceAnnotationAdvisor(interceptor, DS.class);
         advisor.setOrder(aopProperties.getOrder());

@@ -52,7 +52,7 @@ public class DynamicDataSourceAnnotationAdvisor extends AbstractPointcutAdvisor 
                                               @NonNull Class<? extends Annotation> annotation) {
         this.advice = advice;
         this.annotation = annotation;
-        this.pointcut = buildPointcut();
+        this.pointcut = buildPointcut(); /* 切入点 */
     }
 
     @Override
